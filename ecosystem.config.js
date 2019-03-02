@@ -1,6 +1,6 @@
 module.exports = {
   apps : [{
-    name      : 'zhuishushenqi-api',
+    name      : 'zhuishushenqi',
     script    : 'app.js',
     env: {
       NODE_ENV: 'development'
