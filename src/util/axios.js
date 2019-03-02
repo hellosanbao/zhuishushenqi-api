@@ -1,6 +1,6 @@
 const axios = require('axios')
 const { randomUserAgent } = require('./util')
-const { isObject, isArray } = require('lodash')
+const { isArray } = require('lodash')
 module.exports = (opt,curl = 'api') => {
     function getcomData(data){
         let requestData = {
