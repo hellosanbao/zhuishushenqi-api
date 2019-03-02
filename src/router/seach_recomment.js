@@ -10,7 +10,7 @@ module.exports = (app)=>{
             let result = await app.$axios({
                 url:'/books/search-recommend',
             },'b01')
-            res.send(result.data)
+            res.send(result.data.data)
         }catch(err){
            res.send({code:-100,msg:err.message})
         }
