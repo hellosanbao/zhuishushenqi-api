@@ -1,9 +1,11 @@
 const router = require('./src/router')
 const $axios = require('./src/util/axios')
 const apicache = require('apicache')
-const app = require('express')()
+const express = require('express')
+const app = express()
+const Router = express.Router()
 let cache = apicache.middleware
-app.$axios = $axios
+Router.$axios = $axios
 //设置允许跨域访问该服务.
 app.all('*', function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
@@ -14,5 +16,5 @@ app.all('*', function (req, res, next) {
     next();
 });
 app.use(cache('2 minutes', (req, res) => res.statusCode === 200))
-router(app)
+app.use('/api',router(Router))
 app.listen(3005, () => console.log('server start http://localhost:3005'))
