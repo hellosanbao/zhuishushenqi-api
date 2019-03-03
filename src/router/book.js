@@ -13,9 +13,17 @@ module.exports = (app)=>{
                 { url:`/book/${req.query.id}/recommend` },
                 { url:`/book-list/${req.query.id}/recommend` }
             ],'api04ssfv')
+            let chapterLast = await app.$axios({
+                url:'/btoc',
+                data:{
+                    view:'summary',
+                    book:req.query.id
+                }
+            })
             const resultData = {...result[0].data,...result[1].data.doc}
             resultData.books = result[2].data.books.splice(0,8)
             resultData.book_list = result[3].data.booklists.splice(0,2)
+            resultData.chapterLast = chapterLast.data[0]
             res.send(resultData)
         }catch(err){
            res.send({code:-100,msg:err.message})
