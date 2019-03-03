@@ -2,7 +2,9 @@ const router = require('./src/router')
 const $axios = require('./src/util/axios')
 const apicache = require('apicache')
 const express = require('express')
+const compression = require('compression')
 const app = express()
+app.use(compression())
 const Router = express.Router()
 let cache = apicache.middleware
 Router.$axios = $axios

@@ -16,6 +16,7 @@
   "dependencies": {
     "apicache": "^1.4.0",
     "axios": "^0.18.0",
+    "compression": "^1.7.3",
     "express": "^4.16.4",
     "lodash": "^4.17.11"
   }
