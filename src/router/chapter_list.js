@@ -8,7 +8,7 @@
     app.get('/chapter_list',async (req,res)=>{
         try{
             let result = await app.$axios({
-                url:`/btoc/${req.query.id}?view=chapters`,
+                url:`/atoc/${req.query.id}?view=chapters`,
             },'api04ssfv')
             res.send(result.data)
         }catch(err){
