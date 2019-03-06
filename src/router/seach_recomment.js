@@ -1,5 +1,5 @@
 /**
- * 分类列表接口
+ * 推荐搜索关键字
  * @api /search_recommend
  * 
  */

@@ -12,9 +12,9 @@ module.exports = (opt,curl = 'api') => {
             }
         }
         if (requestData.method == 'get') {
-            requestData.params = opt.data
+            requestData.params = data.data
         } else {
-            requestData.data = opt.data
+            requestData.data = data.data
         }
         return requestData
     }
@@ -28,7 +28,9 @@ module.exports = (opt,curl = 'api') => {
             return new Promise((resolve,reject)=>{
                 axios.all(fetchArray).then(axios.spread((...arg)=>{
                     resolve(arg)
-                }))
+                })).catch(err=>{
+                    console.log(err.message)
+                })
             })
         }
         return getAllData()

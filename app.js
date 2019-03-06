@@ -3,6 +3,7 @@ const $axios = require('./src/util/axios')
 const apicache = require('apicache')
 const express = require('express')
 const compression = require('compression')
+const ip = require('ip')
 const app = express()
 app.use(compression())
 const Router = express.Router()
@@ -19,4 +20,4 @@ app.all('*', function (req, res, next) {
 });
 app.use(cache('2 minutes', (req, res) => res.statusCode === 200))
 app.use('/api',router(Router))
-app.listen(3005, () => console.log('server start http://localhost:3005'))
+app.listen(3005, () => console.log('server start http://'+ip.address()+':3005'))
