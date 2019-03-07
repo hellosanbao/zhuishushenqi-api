@@ -28,7 +28,7 @@ module.exports = (app) => {
                 sendData = result.data
             } else {
                 //漫画参数
-                if (req.query.type = 'pic') {
+                if (req.query.type == 'pic') {
                     searchData = {
                         'model.query': req.query.keyword,
                         'model.start': req.query.start,
@@ -40,6 +40,7 @@ module.exports = (app) => {
                         'model.query': req.query.keyword,
                         'model.start': req.query.start,
                         'model.limit': req.query.limit,
+                        'model.contentType2': 1
                     }
                     req.query.cat && (searchData['model.cat'] = req.query.cat)
                     req.query.tag && (searchData['model.tag'] = req.query.tag)
@@ -47,6 +48,7 @@ module.exports = (app) => {
                     req.query.price && (searchData['model.price'] = req.query.price)
                     req.query.wordCount && (searchData['model.wordCount'] = req.query.wordCount)
                 }
+                console.log(searchData)
                 result = await app.$axios([
                     {
                         url: '/books/fuzzy-search-category',
