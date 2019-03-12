@@ -48,7 +48,6 @@ module.exports = (app) => {
                     req.query.price && (searchData['model.price'] = req.query.price)
                     req.query.wordCount && (searchData['model.wordCount'] = req.query.wordCount)
                 }
-                console.log(searchData)
                 result = await app.$axios([
                     {
                         url: '/books/fuzzy-search-category',
