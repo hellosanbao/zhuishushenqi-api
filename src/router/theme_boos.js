@@ -10,6 +10,13 @@
 
 module.exports = (app)=>{
     app.get('/theme_books',async (req,res)=>{
+        if(req.query.tag == '男生'){
+            req.query.tag = null
+            req.query.gender = 'male'
+        }else if(req.query.tag == '女生'){
+            req.query.tag = null
+            req.query.gender = 'female'
+        }
         try{
             let result = await app.$axios({
                 url:'/book-list',
