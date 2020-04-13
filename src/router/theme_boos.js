@@ -4,7 +4,6 @@
  * @param {string} sort 排序方式（collectorCount：按照收藏数排序，created：按发布时间排序
  * @param {string} duration all全部时间段内，last-seven-days最近7天内
  * @param {string} tag 标签名称
- * @param {string} gender 性别 male男 female女
  * @param {number} start 偏移量
  */
 
